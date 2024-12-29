@@ -1,17 +1,19 @@
 import React, { useState } from "react";
+import Values from "values.js";
 
-function Form() {
+function Form({ handleColorList }) {
   const [color, setColor] = useState();
   const handleChangeText = (e) => {
-    console.log(e.target.value);
     setColor(e.target.value);
   };
   const handleChangeColor = (e) => {
-    console.log(e.target.value);
     setColor(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    let colors = new Values(color).all(10);
+    // console.log(colors);
+    handleColorList(colors);
   };
 
   return (
